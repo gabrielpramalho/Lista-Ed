@@ -15,7 +15,7 @@ public class ListaCompras{
     
     static void imprimeMenu(){
         System.out.println(" ## Lista de Compras ## ");
-        System.out.println("1 - Inserir\n2 - Buscar\n3 - Imprimir\n4 - Limpar Lista\n5 - Calcular Total\n0 - Sair");
+        System.out.println("1 - Inserir\n2 - Buscar\n3 - Imprimir\n4 - Limpar Lista\n5 - Remover\n6 - Calcular Total\n0 - Sair");
     }
    
     
@@ -38,6 +38,8 @@ public class ListaCompras{
         int op;
         
         while(true){
+            System.out.println("");
+            System.out.println("");
             imprimeMenu();
             op = tec.nextInt();
             tec.nextLine();
@@ -60,8 +62,12 @@ public class ListaCompras{
                     String name = tec.nextLine();
                     
                     No search = l.busca(name);
+                    if(search != null){
+                        System.out.println("Resultado da busca\n"+search.toString());
+                    }else {
+                        System.out.println("Objeto nao encontrado");
+                    }
                     
-                    System.out.println("Resultado da busca\n"+search.toString());
                     break;
                 case 3:
                     l.imprimeLista();
@@ -70,6 +76,11 @@ public class ListaCompras{
                     l.limpaLista();
                     break;
                 case 5:
+                    System.out.println("Digite o nome do produto a ser removido: ");
+                    String item = tec.nextLine();
+                    l.remove(item);
+                    break;
+                case 6:
                     double t;
                     t = calculoTotal(l);
                     System.out.println("O total é: "+t);

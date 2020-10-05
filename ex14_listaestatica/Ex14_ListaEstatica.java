@@ -18,5 +18,6 @@ public abstract class Ex14_ListaEstatica {
    abstract public void limpaLista();
    abstract public No busca(String s);
    abstract public void imprimeLista();
+   abstract public void remove (String r);
     
 }
